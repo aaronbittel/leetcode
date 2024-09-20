@@ -3,13 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	nums := []int{1, 1, 1, 2, 2, 3}
-	fmt.Println(nums)
-	fmt.Println(removeDuplicates2(nums))
-	fmt.Println(nums)
+	s := "abc"
+	t := "ahbgdc"
+	fmt.Println(s, t)
+	fmt.Println(isSubsequence(s, t), "expect", true)
 
-	nums = []int{0, 0, 1, 1, 1, 1, 2, 3, 3}
-	fmt.Println(nums)
-	fmt.Println(removeDuplicates2(nums))
-	fmt.Println(nums)
+	s = "axc"
+	t = "ahbgdc"
+	fmt.Println(s, t)
+	fmt.Println(isSubsequence(s, t), "expect", false)
 }
