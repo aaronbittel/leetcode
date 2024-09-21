@@ -3,13 +3,21 @@ package main
 import "fmt"
 
 func main() {
-	s := "abc"
-	t := "ahbgdc"
-	fmt.Println(s, t)
-	fmt.Println(isSubsequence(s, t), "expect", true)
+	s := "PAYPALISHIRING"
+	numRows := 3
+	// fmt.Println(s, numRows)
+	// res := convert2(s, numRows)
+	// fmt.Println(res, res == "PAHNAPLSIIGYIR")
 
-	s = "axc"
-	t = "ahbgdc"
-	fmt.Println(s, t)
-	fmt.Println(isSubsequence(s, t), "expect", false)
+	s = "PAYPALISHIRING"
+	numRows = 4
+	fmt.Println(s, numRows)
+	res := convert2(s, numRows)
+	fmt.Println(res, res == "PINALSIGYAHRPI")
+
+	// s = "ABC"
+	// numRows = 2
+	// fmt.Println(s, numRows)
+	// res = convert2(s, numRows)
+	// fmt.Println(res, res == "ACB")
 }
