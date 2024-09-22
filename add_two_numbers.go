@@ -11,19 +11,12 @@ import "fmt"
  */
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	carryOver := (l1.Val + l2.Val) / 10
-	res := &ListNode{
-		Val:  (l1.Val + l2.Val) % 10,
-		Next: nil,
-	}
-	l1, l2 = l1.Next, l2.Next
-	cur := res
+	dummy := &ListNode{}
+	cur := dummy
+	carryOver := 0
 
 	for l1 != nil || l2 != nil {
-		var (
-			v1 int
-			v2 int
-		)
+		v1, v2 := 0, 0
 
 		if l1 != nil {
 			v1 = l1.Val
@@ -53,7 +46,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 	}
 
-	return res
+	return dummy.Next
 }
 
 func addTwoNumbersExtraNumArray(l1 *ListNode, l2 *ListNode) *ListNode {
