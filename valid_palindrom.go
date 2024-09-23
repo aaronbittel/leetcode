@@ -5,7 +5,7 @@ import (
 	"unicode/utf8"
 )
 
-func isPalindrome(s string) bool {
+func isPalindromeStr(s string) bool {
 	s = strings.ToLower(s)
 	left, right := 0, utf8.RuneCountInString(s)-1
 
