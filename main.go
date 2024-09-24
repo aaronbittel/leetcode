@@ -2,26 +2,35 @@ package main
 
 import (
 	"fmt"
+	"slices"
 )
 
 func main() {
-	x := 121
-	fmt.Println(x)
-	res := isPalindrome(x)
-	fmt.Println(res, res == true)
+	s := "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+	expected := []string{"AAAAACCCCC", "CCCCCAAAAA"}
+	res := findRepeatedDnaSequences(s)
+	fmt.Println(res)
+	fmt.Println("res", slices.Compare(expected, res))
+	fmt.Println("-------------")
 
-	x = -121
-	fmt.Println(x)
-	res = isPalindrome(x)
-	fmt.Println(res, res == false)
+	s = "AAAAAAAAAAAAA"
+	expected = []string{"AAAAAAAAAA"}
+	res = findRepeatedDnaSequences(s)
+	fmt.Println(res)
+	fmt.Println("res", slices.Compare(expected, res))
+	fmt.Println("-------------")
 
-	x = 10
-	fmt.Println(x)
-	res = isPalindrome(x)
-	fmt.Println(res, res == false)
+	s = "AAAAAAAAAAA"
+	expected = []string{"AAAAAAAAAA"}
+	res = findRepeatedDnaSequences(s)
+	fmt.Println(res)
+	fmt.Println("res", slices.Compare(expected, res))
+	fmt.Println("-------------")
 
-	x = 1231
-	fmt.Println(x)
-	res = isPalindrome(x)
-	fmt.Println(res, res == false)
+	s = "CAAAAAAAAAC"
+	expected = []string{}
+	res = findRepeatedDnaSequences(s)
+	fmt.Println(res)
+	fmt.Println("res", slices.Compare(expected, res))
+	fmt.Println("-------------")
 }
