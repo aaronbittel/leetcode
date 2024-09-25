@@ -2,35 +2,20 @@ package main
 
 import (
 	"fmt"
-	"slices"
 )
 
 func main() {
-	s := "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
-	expected := []string{"AAAAACCCCC", "CCCCCAAAAA"}
-	res := findRepeatedDnaSequences(s)
-	fmt.Println(res)
-	fmt.Println("res", slices.Compare(expected, res))
-	fmt.Println("-------------")
+	num := 240
+	k := 2
+	res := divisorSubstrings(num, k)
+	fmt.Println(num, k)
+	fmt.Println(res, "sol", res == 2)
+	fmt.Println("---------")
 
-	s = "AAAAAAAAAAAAA"
-	expected = []string{"AAAAAAAAAA"}
-	res = findRepeatedDnaSequences(s)
-	fmt.Println(res)
-	fmt.Println("res", slices.Compare(expected, res))
-	fmt.Println("-------------")
-
-	s = "AAAAAAAAAAA"
-	expected = []string{"AAAAAAAAAA"}
-	res = findRepeatedDnaSequences(s)
-	fmt.Println(res)
-	fmt.Println("res", slices.Compare(expected, res))
-	fmt.Println("-------------")
-
-	s = "CAAAAAAAAAC"
-	expected = []string{}
-	res = findRepeatedDnaSequences(s)
-	fmt.Println(res)
-	fmt.Println("res", slices.Compare(expected, res))
-	fmt.Println("-------------")
+	num = 430043
+	k = 2
+	res = divisorSubstrings(num, k)
+	fmt.Println(num, k)
+	fmt.Println(res, "sol", res == 2)
+	fmt.Println("---------")
 }
