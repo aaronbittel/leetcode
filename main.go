@@ -5,17 +5,25 @@ import (
 )
 
 func main() {
-	num := 240
-	k := 2
-	res := divisorSubstrings(num, k)
-	fmt.Println(num, k)
-	fmt.Println(res, "sol", res == 2)
-	fmt.Println("---------")
+	prices := []int{7, 1, 5, 3, 6, 4}
+	sol := 7
+	fmt.Println(prices)
+	res := maxProfit2(prices)
+	fmt.Println(res, sol, res == sol)
+	fmt.Println("-------------")
 
-	num = 430043
-	k = 2
-	res = divisorSubstrings(num, k)
-	fmt.Println(num, k)
-	fmt.Println(res, "sol", res == 2)
-	fmt.Println("---------")
+	prices = []int{1, 2, 3, 4, 5}
+	sol = 4
+	fmt.Println(prices)
+	res = maxProfit2(prices)
+	fmt.Println(res, sol, res == sol)
+	fmt.Println("-------------")
+
+	prices = []int{7, 6, 4, 3, 1}
+	sol = 0
+	fmt.Println(prices)
+	res = maxProfit2(prices)
+	fmt.Println(res, sol, res == sol)
+	fmt.Println("-------------")
+
 }
