@@ -5,25 +5,31 @@ import (
 )
 
 func main() {
-	prices := []int{7, 1, 5, 3, 6, 4}
-	sol := 7
-	fmt.Println(prices)
-	res := maxProfit2(prices)
+	nums := []int{3, 0, 6, 1, 5}
+	sol := 3
+	fmt.Println(nums)
+	res := hIndex(nums)
 	fmt.Println(res, sol, res == sol)
-	fmt.Println("-------------")
+	fmt.Println("------------")
 
-	prices = []int{1, 2, 3, 4, 5}
-	sol = 4
-	fmt.Println(prices)
-	res = maxProfit2(prices)
+	nums = []int{1, 3, 1}
+	sol = 1
+	fmt.Println(nums)
+	res = hIndex(nums)
 	fmt.Println(res, sol, res == sol)
-	fmt.Println("-------------")
+	fmt.Println("------------")
 
-	prices = []int{7, 6, 4, 3, 1}
-	sol = 0
-	fmt.Println(prices)
-	res = maxProfit2(prices)
+	nums = []int{9, 7, 6, 2, 1}
+	sol = 3
+	fmt.Println(nums)
+	res = hIndex(nums)
 	fmt.Println(res, sol, res == sol)
-	fmt.Println("-------------")
-
+	fmt.Println("------------")
+	//
+	// nums = []int{3, 4, 3, 2, 5, 4, 3}
+	// sol = 3
+	// fmt.Println(nums)
+	// res = jump(nums)
+	// fmt.Println(res, sol, res == sol)
+	// fmt.Println("------------")
 }
