@@ -1,7 +1,11 @@
 package main
 
+import (
+	"slices"
+)
+
 func hIndex(citations []int) int {
-	bubblesort(citations)
+	slices.Sort(citations)
 
 	h := 1
 	for {
