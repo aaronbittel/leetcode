@@ -1,32 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	// true, false, true, 2, true, false, 2
-	randomizedSet := Constructor()
-	fmt.Println(randomizedSet.Remove(2))
-	fmt.Println(randomizedSet.Insert(2))
-	fmt.Println(randomizedSet.GetRandom())
-	fmt.Println(randomizedSet.Insert(1))
-	fmt.Println(randomizedSet.GetRandom())
-	fmt.Println(randomizedSet)
-	fmt.Println(randomizedSet.Remove(1))
-	fmt.Println(randomizedSet.GetRandom())
-	fmt.Println(randomizedSet)
-	fmt.Println(randomizedSet.Insert(4))
-	fmt.Println(randomizedSet.Insert(8))
-	fmt.Println(randomizedSet.Insert(122))
-	fmt.Println(randomizedSet.Insert(122))
-	fmt.Println(randomizedSet.Insert(122))
-	fmt.Println(randomizedSet)
-	fmt.Println(randomizedSet.Remove(4))
-	fmt.Println(randomizedSet)
-	// fmt.Println(randomizedSet.Remove(2), "==?", false)
-	// fmt.Println(randomizedSet.Insert(1), "==?", true)
-	// fmt.Println(randomizedSet.Insert(2), "==?", true)
-	// fmt.Println(randomizedSet.GetRandom(), "==?", 2)
-	// fmt.Println(randomizedSet.Remove(1), "==?", true)
-	// fmt.Println(randomizedSet.Insert(2), "==?", false)
-	// fmt.Println(randomizedSet.GetRandom(), "==?", 2)
+	// gas := []int{1, 2, 3, 4, 5}
+	// cost := []int{3, 4, 5, 1, 2}
+	// fmt.Println("Input:", gas, cost)
+	// res := canCompleteCircuit(gas, cost)
+	// sol := 3
+	// fmt.Println("res:", res, "sol:", sol, res == sol)
+
+	gas := []int{2, 3, 4}
+	cost := []int{3, 4, 3}
+	fmt.Println("Input", gas, cost)
+	res := canCompleteCircuit(gas, cost)
+	sol := -1
+	fmt.Println("res:", res, "sol:", sol, res == sol)
 }
