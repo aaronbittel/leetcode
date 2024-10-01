@@ -6,12 +6,11 @@ import (
 )
 
 func main() {
-	testFunc(candy, []any{[]int{1, 0, 2}}, 5)
-	testFunc(candy, []any{[]int{1, 2, 2}}, 4)
-	testFunc(candy, []any{[]int{1, 0, 2, 3, 2, 0, 5, 2, 1}}, 17)
-	testFunc(candy, []any{[]int{1, 3, 2, 2, 1}}, 7)
-	testFunc(candy, []any{[]int{1, 2, 87, 87, 87, 2, 1}}, 13)
-	testFunc(candy, []any{[]int{1, 2, 3, 1, 0}}, 9)
+	testFunc(intToRoman, []any{3749}, "MMMDCCXLIX")
+	testFunc(intToRoman, []any{58}, "LVIII")
+	testFunc(intToRoman, []any{1994}, "MCMXCIV")
+	testFunc(intToRoman, []any{8}, "VIII")
+	testFunc(intToRoman, []any{10}, "X")
 }
 
 func testFunc(fn any, inputs []any, expected any) {
@@ -35,7 +34,11 @@ func testFunc(fn any, inputs []any, expected any) {
 
 	fmt.Print("Inputs: ")
 	for _, i := range in {
-		fmt.Printf("%+v ", i)
+		if reflect.TypeOf(i).Kind() == reflect.String {
+			fmt.Printf("%q ", i)
+		} else {
+			fmt.Printf("%+v ", i)
+		}
 	}
 	fmt.Println()
 
@@ -51,7 +54,11 @@ func testFunc(fn any, inputs []any, expected any) {
 	if reflect.DeepEqual(actual, expected) {
 		fmt.Println("Test passed!")
 	} else {
-		fmt.Printf("Test failed! Expected %v, got %v\n", expected, actual)
+		if reflect.TypeOf(expected).Kind() == reflect.String {
+			fmt.Printf("Test failed! Expected %q, got %q\n", expected, actual)
+		} else {
+			fmt.Printf("Test failed! Expected %v, got %v\n", expected, actual)
+		}
 	}
 
 	fmt.Println("-------------")
