@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	testFunc(intToRoman, []any{3749}, "MMMDCCXLIX")
-	testFunc(intToRoman, []any{58}, "LVIII")
-	testFunc(intToRoman, []any{1994}, "MCMXCIV")
-	testFunc(intToRoman, []any{8}, "VIII")
-	testFunc(intToRoman, []any{10}, "X")
+	testFunc(trap, []any{[]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}}, 6)
+	testFunc(trap, []any{[]int{4, 2, 0, 3, 2, 5}}, 9)
+	testFunc(trap, []any{[]int{4, 2, 3}}, 1)
+	testFunc(trap, []any{[]int{5, 4, 1, 2}}, 1)
+	testFunc(trap, []any{[]int{0, 1, 2, 0, 3, 0, 1, 2, 0, 0, 4, 2, 1, 2, 5, 0, 1, 2, 0, 2}}, 26)
 }
 
 func testFunc(fn any, inputs []any, expected any) {
