@@ -6,11 +6,32 @@ import (
 )
 
 func main() {
-	testFunc(trap, []any{[]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}}, 6)
-	testFunc(trap, []any{[]int{4, 2, 0, 3, 2, 5}}, 9)
-	testFunc(trap, []any{[]int{4, 2, 3}}, 1)
-	testFunc(trap, []any{[]int{5, 4, 1, 2}}, 1)
-	testFunc(trap, []any{[]int{0, 1, 2, 0, 3, 0, 1, 2, 0, 0, 4, 2, 1, 2, 5, 0, 1, 2, 0, 2}}, 26)
+	testFunc(fullJustify, []any{[]string{
+		"This", "is", "an", "example", "of", "text", "justification."}, 16},
+		[]string{
+			"This    is    an",
+			"example  of text",
+			"justification.  "})
+
+	testFunc(fullJustify, []any{[]string{
+		"What", "must", "be", "acknowledgment", "shall", "be"}, 16},
+		[]string{
+			"What   must   be",
+			"acknowledgment  ",
+			"shall be        "})
+
+	testFunc(fullJustify, []any{[]string{
+		"Science", "is", "what", "we", "understand", "well",
+		"enough", "to", "explain", "to", "a", "computer.",
+		"Art", "is", "everything", "else", "we", `do`,
+	}, 20},
+		[]string{
+			"Science  is  what we",
+			"understand      well",
+			"enough to explain to",
+			"a  computer.  Art is",
+			"everything  else  we",
+			"do                  "})
 }
 
 func testFunc(fn any, inputs []any, expected any) {
