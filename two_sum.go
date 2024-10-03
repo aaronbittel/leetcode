@@ -1,6 +1,6 @@
 package main
 
-func twoSum(nums []int, target int) []int {
+func twoSum2(nums []int, target int) []int {
 	set := map[int]int{target - nums[0]: 0}
 
 	for i := 1; i < len(nums); i++ {

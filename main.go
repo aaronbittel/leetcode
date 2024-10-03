@@ -6,32 +6,10 @@ import (
 )
 
 func main() {
-	testFunc(fullJustify, []any{[]string{
-		"This", "is", "an", "example", "of", "text", "justification."}, 16},
-		[]string{
-			"This    is    an",
-			"example  of text",
-			"justification.  "})
-
-	testFunc(fullJustify, []any{[]string{
-		"What", "must", "be", "acknowledgment", "shall", "be"}, 16},
-		[]string{
-			"What   must   be",
-			"acknowledgment  ",
-			"shall be        "})
-
-	testFunc(fullJustify, []any{[]string{
-		"Science", "is", "what", "we", "understand", "well",
-		"enough", "to", "explain", "to", "a", "computer.",
-		"Art", "is", "everything", "else", "we", `do`,
-	}, 20},
-		[]string{
-			"Science  is  what we",
-			"understand      well",
-			"enough to explain to",
-			"a  computer.  Art is",
-			"everything  else  we",
-			"do                  "})
+	testFunc(twoSum, []any{[]int{2, 7, 11, 15}, 9}, []int{1, 2})
+	testFunc(twoSum, []any{[]int{2, 3, 4}, 6}, []int{1, 3})
+	testFunc(twoSum, []any{[]int{-1, 0}, -1}, []int{1, 2})
+	testFunc(twoSum, []any{[]int{1, 2, 3, 4, 4, 9, 56, 90}, 8}, []int{4, 5})
 }
 
 func testFunc(fn any, inputs []any, expected any) {
