@@ -3,18 +3,26 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"regexp"
+	"strings"
+	"unicode/utf8"
 )
 
 func main() {
-	testFunc(twoSum, []any{[]int{2, 7, 11, 15}, 9}, []int{1, 2})
-	testFunc(twoSum, []any{[]int{2, 3, 4}, 6}, []int{1, 3})
-	testFunc(twoSum, []any{[]int{-1, 0}, -1}, []int{1, 2})
-	testFunc(twoSum, []any{[]int{1, 2, 3, 4, 4, 9, 56, 90}, 8}, []int{4, 5})
+	testFunc(threeSum, []any{[]int{-1, 0, 1, 2, -1, -4}}, [][]int{{-1, -1, 2}, {-1, 0, 1}})
+	testFunc(threeSum, []any{[]int{0, 1, 1}}, [][]int{})
+	testFunc(threeSum, []any{[]int{0, 0, 0}}, [][]int{{0, 0, 0}})
+	testFunc(threeSum, []any{[]int{0, 0, 0, 0}}, [][]int{{0, 0, 0}})
 }
 
 func testFunc(fn any, inputs []any, expected any) {
-	fnValue := reflect.ValueOf(fn)
-	fnType := fnValue.Type()
+	var (
+		green = "\033[38;5;10m"
+		red   = "\033[38;2;255;95;95m"
+
+		fnValue = reflect.ValueOf(fn)
+		fnType  = fnValue.Type()
+	)
 
 	if fnType.Kind() != reflect.Func {
 		fmt.Println("Error: Provided argument is not a function")
@@ -49,16 +57,36 @@ func testFunc(fn any, inputs []any, expected any) {
 	}
 
 	actual := result[0].Interface()
+	var resultMsg string
 
 	if reflect.DeepEqual(actual, expected) {
-		fmt.Println("Test passed!")
+		resultMsg = fmt.Sprint(Colorize("Test passed!", green))
 	} else {
 		if reflect.TypeOf(expected).Kind() == reflect.String {
-			fmt.Printf("Test failed! Expected %q, got %q\n", expected, actual)
+			resultMsg = fmt.Sprintf("Test failed! Expected %q, got %q", expected, actual)
 		} else {
-			fmt.Printf("Test failed! Expected %v, got %v\n", expected, actual)
+			resultMsg = fmt.Sprintf("Test failed! Expected %v, got %v", expected, actual)
 		}
+
+		resultMsg = Colorize(resultMsg, red)
 	}
 
-	fmt.Println("-------------")
+	fmt.Println(resultMsg)
+	fmt.Println(strings.Repeat("-", StringLen(resultMsg)))
+}
+
+func Colorize(s, color string) string {
+	return fmt.Sprintf("%s%s%s", color, s, "\033[m")
+}
+
+func StringLen(str string) int {
+	return utf8.RuneCountInString(StripAnsi(str))
+}
+
+var (
+	ansiRegex = regexp.MustCompile("[\u001B\u009B][[\\]()#;?]*(?:(?:(?:[a-zA-Z\\d]*(?:;[a-zA-Z\\d]*)*)?\u0007)|(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PRZcf-ntqry=><~]))")
+)
+
+func StripAnsi(str string) string {
+	return ansiRegex.ReplaceAllString(str, "")
 }
