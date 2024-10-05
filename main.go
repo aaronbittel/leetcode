@@ -9,10 +9,6 @@ import (
 )
 
 func main() {
-	testFunc(threeSum, []any{[]int{-1, 0, 1, 2, -1, -4}}, [][]int{{-1, -1, 2}, {-1, 0, 1}})
-	testFunc(threeSum, []any{[]int{0, 1, 1}}, [][]int{})
-	testFunc(threeSum, []any{[]int{0, 0, 0}}, [][]int{{0, 0, 0}})
-	testFunc(threeSum, []any{[]int{0, 0, 0, 0}}, [][]int{{0, 0, 0}})
 }
 
 func testFunc(fn any, inputs []any, expected any) {
