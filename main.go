@@ -9,6 +9,11 @@ import (
 )
 
 func main() {
+	testFunc(reverse, []any{123}, 321)
+	testFunc(reverse, []any{-123}, -321)
+	testFunc(reverse, []any{120}, 21)
+	testFunc(reverse, []any{12}, 21)
+	testFunc(reverse, []any{2}, 2)
 }
 
 func testFunc(fn any, inputs []any, expected any) {
