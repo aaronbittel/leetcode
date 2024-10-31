@@ -9,9 +9,18 @@ import (
 )
 
 func main() {
-	testFunc(longestOnes, []any{[]int{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2}, 6)
-	testFunc(longestOnes, []any{[]int{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3}, 10)
-	testFunc(longestOnes, []any{[]int{0, 0, 0, 1}, 4}, 4)
+	testFunc(findSubstring, []any{"barfoothefoobarman", []string{"foo", "bar"}}, []int{0, 9})
+	testFunc(
+		findSubstring,
+		[]any{"wordgoodgoodgoodbestword", []string{"word", "good", "best", "word"}},
+		[]int{},
+	)
+	testFunc(
+		findSubstring,
+		[]any{"barfoofoobarthefoobarman", []string{"bar", "foo", "the"}},
+		[]int{6, 9, 12},
+	)
+	testFunc(findSubstring, []any{"barfoobar", []string{"foo", "bar"}}, []int{0, 3})
 }
 
 func testFunc(fn any, inputs []any, expected any) {
