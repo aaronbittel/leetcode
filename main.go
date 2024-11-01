@@ -9,18 +9,11 @@ import (
 )
 
 func main() {
-	testFunc(findSubstring, []any{"barfoothefoobarman", []string{"foo", "bar"}}, []int{0, 9})
-	testFunc(
-		findSubstring,
-		[]any{"wordgoodgoodgoodbestword", []string{"word", "good", "best", "word"}},
-		[]int{},
-	)
-	testFunc(
-		findSubstring,
-		[]any{"barfoofoobarthefoobarman", []string{"bar", "foo", "the"}},
-		[]int{6, 9, 12},
-	)
-	testFunc(findSubstring, []any{"barfoobar", []string{"foo", "bar"}}, []int{0, 3})
+	testFunc(minWindow, []any{"ADOBECODEBANC", "ABC"}, "BANC")
+	testFunc(minWindow, []any{"a", "a"}, "a")
+	testFunc(minWindow, []any{"a", "aa"}, "")
+	testFunc(minWindow, []any{"aa", "aa"}, "aa")
+	testFunc(minWindow, []any{"acbbaca", "aba"}, "baca")
 }
 
 func testFunc(fn any, inputs []any, expected any) {
