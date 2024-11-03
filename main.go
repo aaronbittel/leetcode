@@ -4,16 +4,62 @@ import (
 	"fmt"
 	"reflect"
 	"regexp"
+	"slices"
 	"strings"
 	"unicode/utf8"
 )
 
 func main() {
-	testFunc(minWindow, []any{"ADOBECODEBANC", "ABC"}, "BANC")
-	testFunc(minWindow, []any{"a", "a"}, "a")
-	testFunc(minWindow, []any{"a", "aa"}, "")
-	testFunc(minWindow, []any{"aa", "aa"}, "aa")
-	testFunc(minWindow, []any{"acbbaca", "aba"}, "baca")
+	var (
+		green = "\033[38;5;10m"
+		red   = "\033[38;2;255;95;95m"
+	)
+
+	input := [][]int{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}}
+	expected := [][]int{{1, 0, 1}, {0, 0, 0}, {1, 0, 1}}
+
+	fmt.Println(input)
+
+	setZeroes(input)
+	correct := true
+	for i := 0; i < len(input); i++ {
+		if !slices.Equal(input[i], expected[i]) {
+			fmt.Println(
+				Colorize(
+					fmt.Sprintf("Test failed! Expected %v, got %v", expected[i], input[i]),
+					red,
+				))
+			correct = false
+		}
+	}
+
+	if correct {
+		fmt.Println(fmt.Sprint(Colorize("Test passed!", green)))
+	}
+
+	fmt.Println()
+
+	input = [][]int{{0, 1, 2, 0}, {3, 4, 5, 2}, {1, 3, 1, 5}}
+	expected = [][]int{{0, 0, 0, 0}, {0, 4, 5, 0}, {0, 3, 1, 0}}
+
+	fmt.Println(input)
+
+	setZeroes(input)
+	correct = true
+	for i := 0; i < len(input); i++ {
+		if !slices.Equal(input[i], expected[i]) {
+			fmt.Println(
+				Colorize(
+					fmt.Sprintf("Test failed! Expected %v, got %v", expected[i], input[i]),
+					red,
+				))
+			correct = false
+		}
+	}
+
+	if correct {
+		fmt.Println(fmt.Sprint(Colorize("Test passed!", green)))
+	}
 }
 
 func testFunc(fn any, inputs []any, expected any) {
