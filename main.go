@@ -10,56 +10,11 @@ import (
 )
 
 func main() {
-	var (
-		green = "\033[38;5;10m"
-		red   = "\033[38;2;255;95;95m"
-	)
-
-	input := [][]int{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}}
-	expected := [][]int{{1, 0, 1}, {0, 0, 0}, {1, 0, 1}}
-
-	fmt.Println(input)
-
-	setZeroes(input)
-	correct := true
-	for i := 0; i < len(input); i++ {
-		if !slices.Equal(input[i], expected[i]) {
-			fmt.Println(
-				Colorize(
-					fmt.Sprintf("Test failed! Expected %v, got %v", expected[i], input[i]),
-					red,
-				))
-			correct = false
-		}
-	}
-
-	if correct {
-		fmt.Println(fmt.Sprint(Colorize("Test passed!", green)))
-	}
-
-	fmt.Println()
-
-	input = [][]int{{0, 1, 2, 0}, {3, 4, 5, 2}, {1, 3, 1, 5}}
-	expected = [][]int{{0, 0, 0, 0}, {0, 4, 5, 0}, {0, 3, 1, 0}}
-
-	fmt.Println(input)
-
-	setZeroes(input)
-	correct = true
-	for i := 0; i < len(input); i++ {
-		if !slices.Equal(input[i], expected[i]) {
-			fmt.Println(
-				Colorize(
-					fmt.Sprintf("Test failed! Expected %v, got %v", expected[i], input[i]),
-					red,
-				))
-			correct = false
-		}
-	}
-
-	if correct {
-		fmt.Println(fmt.Sprint(Colorize("Test passed!", green)))
-	}
+	testFunc(isIsomorphic, []any{"egg", "add"}, true)
+	testFunc(isIsomorphic, []any{"foo", "bar"}, false)
+	testFunc(isIsomorphic, []any{"paper", "title"}, true)
+	testFunc(isIsomorphic, []any{"badc", "baba"}, false)
+	testFunc(isIsomorphic, []any{"abab", "baba"}, true)
 }
 
 func testFunc(fn any, inputs []any, expected any) {
@@ -136,4 +91,57 @@ var (
 
 func StripAnsi(str string) string {
 	return ansiRegex.ReplaceAllString(str, "")
+}
+
+func inPlace() {
+	var (
+		green = "\033[38;5;10m"
+		red   = "\033[38;2;255;95;95m"
+	)
+
+	input := [][]int{{0, 1, 0}, {0, 0, 1}, {1, 1, 1}, {0, 0, 0}}
+	expected := [][]int{{0, 0, 0}, {1, 0, 1}, {0, 1, 1}, {0, 1, 0}}
+
+	fmt.Println(input)
+
+	gameOfLife(input)
+	correct := true
+	for i := 0; i < len(input); i++ {
+		if !slices.Equal(input[i], expected[i]) {
+			fmt.Println(
+				Colorize(
+					fmt.Sprintf("Test failed! Expected %v, got %v", expected[i], input[i]),
+					red,
+				))
+			correct = false
+		}
+	}
+
+	if correct {
+		fmt.Println(fmt.Sprint(Colorize("Test passed!", green)))
+	}
+
+	fmt.Println()
+
+	input = [][]int{{1, 1}, {1, 0}}
+	expected = [][]int{{1, 1}, {1, 1}}
+
+	fmt.Println(input)
+
+	gameOfLife(input)
+	correct = true
+	for i := 0; i < len(input); i++ {
+		if !slices.Equal(input[i], expected[i]) {
+			fmt.Println(
+				Colorize(
+					fmt.Sprintf("Test failed! Expected %v, got %v", expected[i], input[i]),
+					red,
+				))
+			correct = false
+		}
+	}
+
+	if correct {
+		fmt.Println(fmt.Sprint(Colorize("Test passed!", green)))
+	}
 }
