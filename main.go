@@ -10,11 +10,11 @@ import (
 )
 
 func main() {
-	testFunc(isIsomorphic, []any{"egg", "add"}, true)
-	testFunc(isIsomorphic, []any{"foo", "bar"}, false)
-	testFunc(isIsomorphic, []any{"paper", "title"}, true)
-	testFunc(isIsomorphic, []any{"badc", "baba"}, false)
-	testFunc(isIsomorphic, []any{"abab", "baba"}, true)
+	testFunc(groupAnagrams, []any{[]string{"eat", "tea", "tan", "ate", "nat", "bat"}},
+		[][]string{{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}})
+
+	testFunc(groupAnagrams, []any{[]string{""}}, [][]string{{""}})
+	testFunc(groupAnagrams, []any{[]string{"a"}}, [][]string{{"a"}})
 }
 
 func testFunc(fn any, inputs []any, expected any) {
