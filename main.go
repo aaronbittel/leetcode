@@ -10,11 +10,8 @@ import (
 )
 
 func main() {
-	testFunc(groupAnagrams, []any{[]string{"eat", "tea", "tan", "ate", "nat", "bat"}},
-		[][]string{{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}})
-
-	testFunc(groupAnagrams, []any{[]string{""}}, [][]string{{""}})
-	testFunc(groupAnagrams, []any{[]string{"a"}}, [][]string{{"a"}})
+	testFunc(longestConsecutive, []any{[]int{100, 4, 200, 1, 3, 2}}, 4)
+	testFunc(longestConsecutive, []any{[]int{0, 3, 7, 2, 5, 8, 4, 6, 0, 1}}, 9)
 }
 
 func testFunc(fn any, inputs []any, expected any) {
