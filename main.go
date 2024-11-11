@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"reflect"
 	"regexp"
 	"slices"
@@ -9,16 +10,45 @@ import (
 	"unicode/utf8"
 )
 
+const (
+	GREEN = "\033[38;5;10m"
+	RED   = "\033[38;2;255;95;95m"
+)
+
 func main() {
-	testFunc(longestConsecutive, []any{[]int{100, 4, 200, 1, 3, 2}}, 4)
-	testFunc(longestConsecutive, []any{[]int{0, 3, 7, 2, 5, 8, 4, 6, 0, 1}}, 9)
+	minStack := NewMinStack()
+	minStack.Push(-2)
+	minStack.Push(0)
+	minStack.Push(-3)
+	fmt.Println(ColorizeIf(minStack.GetMin(), -3))
+	minStack.Pop()
+	fmt.Println(ColorizeIf(minStack.Top(), 0))
+	fmt.Println(ColorizeIf(minStack.GetMin(), -2))
+
+	fmt.Println("-----------------------")
+
+	minStack = NewMinStack()
+	minStack.Push(0)
+	minStack.Push(1)
+	minStack.Push(0)
+	fmt.Println(ColorizeIf(minStack.GetMin(), 0))
+	minStack.Pop()
+	fmt.Println(ColorizeIf(minStack.GetMin(), 0))
+
+	fmt.Println("-----------------------")
+
+	minStack = NewMinStack()
+	minStack.Push(1)
+	minStack.Push(2)
+	fmt.Println(ColorizeIf(minStack.Top(), 2))
+	fmt.Println(ColorizeIf(minStack.GetMin(), 1))
+	minStack.Pop()
+	fmt.Println(ColorizeIf(minStack.GetMin(), 1))
+	fmt.Println(ColorizeIf(minStack.Top(), 1))
 }
 
 func testFunc(fn any, inputs []any, expected any) {
 	var (
-		green = "\033[38;5;10m"
-		red   = "\033[38;2;255;95;95m"
-
 		fnValue = reflect.ValueOf(fn)
 		fnType  = fnValue.Type()
 	)
@@ -59,7 +89,7 @@ func testFunc(fn any, inputs []any, expected any) {
 	var resultMsg string
 
 	if reflect.DeepEqual(actual, expected) {
-		resultMsg = fmt.Sprint(Colorize("Test passed!", green))
+		resultMsg = fmt.Sprint(Colorize("Test passed!", GREEN))
 	} else {
 		if reflect.TypeOf(expected).Kind() == reflect.String {
 			resultMsg = fmt.Sprintf("Test failed! Expected %q, got %q", expected, actual)
@@ -67,7 +97,7 @@ func testFunc(fn any, inputs []any, expected any) {
 			resultMsg = fmt.Sprintf("Test failed! Expected %v, got %v", expected, actual)
 		}
 
-		resultMsg = Colorize(resultMsg, red)
+		resultMsg = Colorize(resultMsg, RED)
 	}
 
 	fmt.Println(resultMsg)
@@ -91,11 +121,6 @@ func StripAnsi(str string) string {
 }
 
 func inPlace() {
-	var (
-		green = "\033[38;5;10m"
-		red   = "\033[38;2;255;95;95m"
-	)
-
 	input := [][]int{{0, 1, 0}, {0, 0, 1}, {1, 1, 1}, {0, 0, 0}}
 	expected := [][]int{{0, 0, 0}, {1, 0, 1}, {0, 1, 1}, {0, 1, 0}}
 
@@ -108,14 +133,14 @@ func inPlace() {
 			fmt.Println(
 				Colorize(
 					fmt.Sprintf("Test failed! Expected %v, got %v", expected[i], input[i]),
-					red,
+					RED,
 				))
 			correct = false
 		}
 	}
 
 	if correct {
-		fmt.Println(fmt.Sprint(Colorize("Test passed!", green)))
+		fmt.Println(fmt.Sprint(Colorize("Test passed!", GREEN)))
 	}
 
 	fmt.Println()
@@ -132,13 +157,28 @@ func inPlace() {
 			fmt.Println(
 				Colorize(
 					fmt.Sprintf("Test failed! Expected %v, got %v", expected[i], input[i]),
-					red,
+					RED,
 				))
 			correct = false
 		}
 	}
 
 	if correct {
-		fmt.Println(fmt.Sprint(Colorize("Test passed!", green)))
+		fmt.Println(fmt.Sprint(Colorize("Test passed!", GREEN)))
 	}
+}
+
+func ColorizeIf(x, y any) string {
+	var cond bool
+	switch x.(type) {
+	case int:
+		cond = x == y
+	default:
+		log.Fatalf("unknown type: %v", reflect.TypeOf(x))
+	}
+
+	if cond {
+		return Colorize(fmt.Sprintf("%v == %v", x, y), GREEN)
+	}
+	return Colorize(fmt.Sprintf("%v != %v", x, y), RED)
 }
