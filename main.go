@@ -16,35 +16,8 @@ const (
 )
 
 func main() {
-	minStack := NewMinStack()
-	minStack.Push(-2)
-	minStack.Push(0)
-	minStack.Push(-3)
-	fmt.Println(ColorizeIf(minStack.GetMin(), -3))
-	minStack.Pop()
-	fmt.Println(ColorizeIf(minStack.Top(), 0))
-	fmt.Println(ColorizeIf(minStack.GetMin(), -2))
-
-	fmt.Println("-----------------------")
-
-	minStack = NewMinStack()
-	minStack.Push(0)
-	minStack.Push(1)
-	minStack.Push(0)
-	fmt.Println(ColorizeIf(minStack.GetMin(), 0))
-	minStack.Pop()
-	fmt.Println(ColorizeIf(minStack.GetMin(), 0))
-
-	fmt.Println("-----------------------")
-
-	minStack = NewMinStack()
-	minStack.Push(1)
-	minStack.Push(2)
-	fmt.Println(ColorizeIf(minStack.Top(), 2))
-	fmt.Println(ColorizeIf(minStack.GetMin(), 1))
-	minStack.Pop()
-	fmt.Println(ColorizeIf(minStack.GetMin(), 1))
-	fmt.Println(ColorizeIf(minStack.Top(), 1))
+	testFunc(searchMatrix, []any{[][]int{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}}, 3}, true)
+	testFunc(searchMatrix, []any{[][]int{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}}, 13}, false)
 }
 
 func testFunc(fn any, inputs []any, expected any) {
