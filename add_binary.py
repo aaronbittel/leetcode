@@ -2,6 +2,12 @@ from collections import namedtuple
 
 
 class Solution:
+    tests = namedtuple("Test", ["ins", "out"])
+    TESTS = [
+        tests(ins=("11", "1"), out="100"),
+        tests(ins=("1010", "1011"), out="10101"),
+    ]
+
     def addBinary(self, a: str, b: str) -> str:
         res = ""
 
@@ -36,14 +42,3 @@ class Solution:
             res += "1"
 
         return res[::-1]
-
-
-tests = namedtuple("Test", ["ins", "out"])
-tests = [tests(ins=("11", "1"), out="100"), tests(ins=("1010", "1011"), out="10101")]
-
-for tt in tests:
-    got = Solution().addBinary(*tt.ins)
-    if got != tt.out:
-        print(f"Ins: {tt.ins} -> Expected: {tt.out}, got: {got}")
-    else:
-        print(f"Ins: {tt.ins} -> {got}: Success!")

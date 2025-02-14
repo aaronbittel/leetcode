@@ -1,18 +1,30 @@
-from functools import cache
 import logging
+from collections import namedtuple
+from functools import cache
 
 logging.basicConfig(format="", level=logging.INFO)
 
 
 class Solution:
+    tests = namedtuple("Test", ["ins", "out"])
+    TESTS = [
+        tests(ins=("aa", "a"), out=False),
+        tests(ins=("aa", "a*"), out=True),
+        tests(ins=("ab", ".*"), out=True),
+        tests(ins=("aab", "c*a*b"), out=True),
+        tests(ins=("mississippi", "mis*is*ip*."), out=True),
+        tests(ins=("ppi", "."), out=False),
+        tests(ins=("ab", ".*c"), out=False),
+        tests(ins=("aaa", "a.a"), out=True),
+        tests(ins=("a", "ab*"), out=True),
+        tests(ins=("a", ".*..a*"), out=False),
+        tests(ins=("a", "ab*"), out=True),
+        tests(ins=("abcdede", "ab.*de"), out=True),
+        tests(ins=("aaaaaaaaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*"), out=False),
+    ]
+
     @cache
     def isMatch(self, s: str, p: str) -> bool:
-        # if s == "aaaaaaaaaaaaaaaaaaab" and p == "a*a*a*a*a*a*a*a*a*a*":
-        #     return False
-        #
-        # if s == "aaaaaaaaaaaaaaaaaaa" and p == "a*a*a*a*a*a*a*a*a*b":
-        #     return False
-
         if s == p:
             return True
         logging.debug(f"calling: {s = }, {p = }")
@@ -69,30 +81,3 @@ class Solution:
             return True
 
         return False
-
-
-from collections import namedtuple  # noqa: E402
-
-tests = namedtuple("Test", ["ins", "out"])
-tests = [
-    # tests(ins=("aa", "a"), out=False),
-    # tests(ins=("aa", "a*"), out=True),
-    # tests(ins=("ab", ".*"), out=True),
-    # tests(ins=("aab", "c*a*b"), out=True),
-    # tests(ins=("mississippi", "mis*is*ip*."), out=True),
-    # tests(ins=("ppi", "."), out=False),
-    # tests(ins=("ab", ".*c"), out=False),
-    # tests(ins=("aaa", "a.a"), out=True),
-    # tests(ins=("a", "ab*"), out=True),
-    # tests(ins=("a", ".*..a*"), out=False),
-    # tests(ins=("a", "ab*"), out=True),
-    # tests(ins=("abcdede", "ab.*de"), out=True),
-    # tests(ins=("aaaaaaaaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*"), out=False),
-]
-
-for tt in tests:
-    got = Solution().isMatch(*tt.ins)
-    if got != tt.out:
-        print(f"Ins: {tt.ins} -> Expected: {tt.out}, got: {got}")
-    else:
-        print(f"Ins: {tt.ins} -> {got}: Success!")

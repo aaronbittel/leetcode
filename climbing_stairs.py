@@ -1,7 +1,15 @@
+from collections import namedtuple
 from functools import cache
 
 
 class Solution:
+    tests = namedtuple("Test", ["ins", "out"])
+    TESTS = [
+        tests(ins=2, out=2),
+        tests(ins=3, out=3),
+        tests(ins=38, out=63245986),
+    ]
+
     @cache
     def climbStairs(self, n: int) -> int:
         if n == 0 or n == 1:
@@ -16,20 +24,3 @@ class Solution:
         total += self.climbStairs(n - 2)
 
         return total
-
-
-from collections import namedtuple  # noqa: E402
-
-tests = namedtuple("Test", ["ins", "out"])
-tests = [
-    tests(ins=2, out=2),
-    tests(ins=3, out=3),
-    tests(ins=38, out=3),
-]
-
-for tt in tests:
-    got = Solution().climbStairs(tt.ins)
-    if got != tt.out:
-        print(f"Ins: {tt.ins} -> Expected: {tt.out}, got: {got}")
-    else:
-        print(f"Ins: {tt.ins} -> {got}: Success!")

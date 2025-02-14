@@ -2,6 +2,20 @@ from collections import namedtuple
 
 
 class Solution:
+    tests = namedtuple("Test", ["ins", "out"])
+    TESTS = [
+        tests(ins=([1, 3], [2]), out=2.0),
+        tests(ins=([1, 2], [3, 4]), out=2.5),
+        tests(ins=([1, 3, 4, 5, 7], [2, 3, 4, 6, 7, 9]), out=4.0),
+        tests(ins=([1, 3, 5, 7], [2, 3, 4, 6, 7, 9]), out=4.5),
+        tests(ins=([], [1]), out=1.0),
+        tests(
+            ins=([1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]), out=9.0
+        ),
+        tests(ins=([3], [-2, -1]), out=-1.0),
+        tests(ins=([1, 2], [-1, 3]), out=1.5),
+    ]
+
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
         n = len(nums1)
         m = len(nums2)
@@ -28,23 +42,3 @@ class Solution:
         if (n + m) % 2 == 0:
             return (prev_med + med) / 2
         return med
-
-
-tests = namedtuple("Test", ["ins", "out"])
-tests = [
-    tests(ins=([1, 3], [2]), out=2.0),
-    tests(ins=([1, 2], [3, 4]), out=2.5),
-    tests(ins=([1, 3, 4, 5, 7], [2, 3, 4, 6, 7, 9]), out=4.0),
-    tests(ins=([1, 3, 5, 7], [2, 3, 4, 6, 7, 9]), out=4.5),
-    tests(ins=([], [1]), out=1.0),
-    tests(ins=([1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]), out=9.0),
-    tests(ins=([3], [-2, -1]), out=-1.0),
-    tests(ins=([1, 2], [-1, 3]), out=1.5),
-]
-
-for tt in tests:
-    got = Solution().findMedianSortedArrays(*tt.ins)
-    if got != tt.out:
-        print(f'Ins: {tt.ins} -> Expected: {tt.out}, got: "{got}"')
-    else:
-        print(f"Ins: {tt.ins} -> {got}: Success!")

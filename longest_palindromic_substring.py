@@ -7,6 +7,13 @@ from collections import namedtuple
 
 
 class Solution:
+    tests = namedtuple("Test", ["ins", "out"])
+    TESTS = [
+        tests(ins="babad", out="bab"),
+        tests(ins="cbbd", out="bb"),
+        tests(ins="a", out="a"),
+    ]
+
     def longestPalindrome(self, s: str) -> str:
         longest = s[0]
         for i in range(len(s)):
@@ -34,23 +41,8 @@ def is_palindrom(s: str) -> bool:
 
 
 # def is_palindrom(s: str) -> bool:
-#     l = len(s)  # noqa: E741
+#     l = len(s)
 #     for i in range(l // 2):
 #         if s[i] != s[l - 1 - i]:
 #             return False
 #     return True
-
-
-tests = namedtuple("Test", ["ins", "out"])
-tests = [
-    tests(ins="babad", out="bab"),
-    tests(ins="cbbd", out="bb"),
-    tests(ins="a", out="a"),
-]
-
-for tt in tests:
-    got = Solution().longestPalindrome(tt.ins)
-    if got != tt.out:
-        print(f'Ins: {tt.ins} -> Expected: {tt.out}, got: "{got}"')
-    else:
-        print(f"Ins: {tt.ins} -> {got}: Success!")

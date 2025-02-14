@@ -1,4 +1,18 @@
+from collections import namedtuple
+
+
 class Solution:
+    tests = namedtuple("Test", ["ins", "out"])
+    TESTS = [
+        tests(ins="42", out=42),
+        tests(ins="-042", out=-42),
+        tests(ins="1337c0d3", out=1337),
+        tests(ins="0-1", out=0),
+        tests(ins="words and 987", out=0),
+        tests(ins="0  123", out=0),
+        tests(ins="  0000000000012345678", out=12345678),
+    ]
+
     def myAtoi(self, s: str) -> int:
         int_str = ""
         is_pos = True
@@ -51,24 +65,3 @@ class Solution:
         if not is_pos:
             return max(-res, -(2**31))
         return min(res, 2**31 - 1)
-
-
-from collections import namedtuple  # noqa: E402
-
-tests = namedtuple("Test", ["ins", "out"])
-tests = [
-    tests(ins="42", out=42),
-    tests(ins="-042", out=-42),
-    tests(ins="1337c0d3", out=1337),
-    tests(ins="0-1", out=0),
-    tests(ins="words and 987", out=0),
-    tests(ins="0  123", out=0),
-    tests(ins="  0000000000012345678", out=12345678),
-]
-
-for tt in tests:
-    got = Solution().myAtoi(tt.ins)
-    if got != tt.out:
-        print(f"Ins: {tt.ins} -> Expected: {tt.out}, got: {got}")
-    else:
-        print(f"Ins: {tt.ins} -> {got}: Success!")
