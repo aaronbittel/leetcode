@@ -1,12 +1,11 @@
 import logging
-from collections import namedtuple
 from functools import cache
+from defs import tests
 
 logging.basicConfig(format="", level=logging.INFO)
 
 
 class Solution:
-    tests = namedtuple("Test", ["ins", "out"])
     TESTS = [
         tests(ins=("aa", "a"), out=False),
         tests(ins=("aa", "a*"), out=True),

@@ -7,12 +7,10 @@
 #   - if diff < 0 -> l++ (make sum bigger) else r-- (make sum smaller)
 # Runtime: O(n**2) -> n * (n - i)
 
-from collections import namedtuple
+from defs import tests
 
 
 class Solution:
-    tests = namedtuple("Test", ["ins", "out"])
-
     TESTS = [
         tests(ins=([-1, 2, 1, -4], 1), out=2),
         tests(ins=([0, 0, 0], 1), out=0),

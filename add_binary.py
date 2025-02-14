@@ -1,8 +1,7 @@
-from collections import namedtuple
+from defs import tests
 
 
 class Solution:
-    tests = namedtuple("Test", ["ins", "out"])
     TESTS = [
         tests(ins=("11", "1"), out="100"),
         tests(ins=("1010", "1011"), out="10101"),

@@ -1,9 +1,9 @@
-from collections import namedtuple
 from functools import cache
+
+from defs import tests
 
 
 class Solution:
-    tests = namedtuple("Test", ["ins", "out"])
     TESTS = [
         tests(ins=2, out=2),
         tests(ins=3, out=3),
