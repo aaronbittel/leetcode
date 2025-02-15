@@ -12,9 +12,9 @@ from defs import tests
 
 class Solution:
     TESTS = [
-        tests(ins=([-1, 2, 1, -4], 1), out=2),
-        tests(ins=([0, 0, 0], 1), out=0),
-        tests(ins=([0, 1, 2], 0), out=3),
+        tests(ins=([-1, 2, 1, -4], 1), want=2),
+        tests(ins=([0, 0, 0], 1), want=0),
+        tests(ins=([0, 1, 2], 0), want=3),
     ]
 
     def threeSumClosest(self, nums: list[int], target: int) -> int:

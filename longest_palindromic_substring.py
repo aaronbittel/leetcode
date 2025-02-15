@@ -8,9 +8,9 @@ from defs import tests
 
 class Solution:
     TESTS = [
-        tests(ins="babad", out="bab"),
-        tests(ins="cbbd", out="bb"),
-        tests(ins="a", out="a"),
+        tests(ins="babad", want="bab"),
+        tests(ins="cbbd", want="bb"),
+        tests(ins="a", want="a"),
     ]
 
     def longestPalindrome(self, s: str) -> str:

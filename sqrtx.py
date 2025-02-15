@@ -3,14 +3,14 @@ from defs import tests
 
 class Solution:
     TESTS = [
-        tests(ins=4, out=2),
-        tests(ins=5, out=2),
-        tests(ins=8, out=2),
-        tests(ins=9, out=3),
-        tests(ins=128, out=11),
-        tests(ins=1, out=1),
-        tests(ins=2, out=1),
-        tests(ins=36, out=6),
+        tests(ins=4, want=2),
+        tests(ins=5, want=2),
+        tests(ins=8, want=2),
+        tests(ins=9, want=3),
+        tests(ins=128, want=11),
+        tests(ins=1, want=1),
+        tests(ins=2, want=1),
+        tests(ins=36, want=6),
     ]
 
     def mySqrt(self, x: int) -> int:

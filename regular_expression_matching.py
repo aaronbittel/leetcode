@@ -7,19 +7,19 @@ logging.basicConfig(format="", level=logging.INFO)
 
 class Solution:
     TESTS = [
-        tests(ins=("aa", "a"), out=False),
-        tests(ins=("aa", "a*"), out=True),
-        tests(ins=("ab", ".*"), out=True),
-        tests(ins=("aab", "c*a*b"), out=True),
-        tests(ins=("mississippi", "mis*is*ip*."), out=True),
-        tests(ins=("ppi", "."), out=False),
-        tests(ins=("ab", ".*c"), out=False),
-        tests(ins=("aaa", "a.a"), out=True),
-        tests(ins=("a", "ab*"), out=True),
-        tests(ins=("a", ".*..a*"), out=False),
-        tests(ins=("a", "ab*"), out=True),
-        tests(ins=("abcdede", "ab.*de"), out=True),
-        tests(ins=("aaaaaaaaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*"), out=False),
+        tests(ins=("aa", "a"), want=False),
+        tests(ins=("aa", "a*"), want=True),
+        tests(ins=("ab", ".*"), want=True),
+        tests(ins=("aab", "c*a*b"), want=True),
+        tests(ins=("mississippi", "mis*is*ip*."), want=True),
+        tests(ins=("ppi", "."), want=False),
+        tests(ins=("ab", ".*c"), want=False),
+        tests(ins=("aaa", "a.a"), want=True),
+        tests(ins=("a", "ab*"), want=True),
+        tests(ins=("a", ".*..a*"), want=False),
+        tests(ins=("a", "ab*"), want=True),
+        tests(ins=("abcdede", "ab.*de"), want=True),
+        tests(ins=("aaaaaaaaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*"), want=False),
     ]
 
     @cache

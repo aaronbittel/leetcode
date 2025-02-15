@@ -3,16 +3,17 @@ from defs import tests
 
 class Solution:
     TESTS = [
-        tests(ins=([1, 3], [2]), out=2.0),
-        tests(ins=([1, 2], [3, 4]), out=2.5),
-        tests(ins=([1, 3, 4, 5, 7], [2, 3, 4, 6, 7, 9]), out=4.0),
-        tests(ins=([1, 3, 5, 7], [2, 3, 4, 6, 7, 9]), out=4.5),
-        tests(ins=([], [1]), out=1.0),
+        tests(ins=([1, 3], [2]), want=2.0),
+        tests(ins=([1, 2], [3, 4]), want=2.5),
+        tests(ins=([1, 3, 4, 5, 7], [2, 3, 4, 6, 7, 9]), want=4.0),
+        tests(ins=([1, 3, 5, 7], [2, 3, 4, 6, 7, 9]), want=4.5),
+        tests(ins=([], [1]), want=1.0),
         tests(
-            ins=([1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]), out=9.0
+            ins=([1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]),
+            want=9.0,
         ),
-        tests(ins=([3], [-2, -1]), out=-1.0),
-        tests(ins=([1, 2], [-1, 3]), out=1.5),
+        tests(ins=([3], [-2, -1]), want=-1.0),
+        tests(ins=([1, 2], [-1, 3]), want=1.5),
     ]
 
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:

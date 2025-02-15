@@ -10,10 +10,10 @@ class Solution:
                 ListNode.from_list([1, 3, 4]),
                 ListNode.from_list([2, 6]),
             ],
-            out=ListNode.from_list([1, 1, 2, 3, 4, 4, 5, 6]),
+            want=ListNode.from_list([1, 1, 2, 3, 4, 4, 5, 6]),
         ),
-        tests(ins=None, out=None),
-        tests(ins=[None], out=None),
+        tests(ins=None, want=None),
+        tests(ins=[None], want=None),
     ]
 
     def mergeKLists(self, lists: list[Optional[ListNode]]) -> Optional[ListNode]:
@@ -62,10 +62,10 @@ class Solution:
 if __name__ == "__main__":
     for tt in Solution.TESTS:
         got = Solution().mergeKLists(tt.ins)
-        if got != tt.out:
+        if got != tt.want:
             out = ""
             for l in tt.ins:
                 out += f"\t{l}\n"
-            print(f"Ins: {out}FAILURE! Expected: {tt.out}, got: {got}\n")
+            print(f"Ins: {out}FAILURE! Expected: {tt.want}, got: {got}\n")
         else:
             print(f"Ins: {tt.ins} -> SUCCESS! {got}")

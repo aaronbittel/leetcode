@@ -25,8 +25,8 @@ def run_tests(solution: type, method_name: str):
     for tt in solution.TESTS:
         inputs = tt.ins if isinstance(tt.ins, tuple) else (tt.ins,)
         got = method(*inputs)
-        if got != tt.out:
-            print(f"Ins: {tt.ins} -> {FAILURE} Expected: {tt.out}, got: {got}")
+        if got != tt.want:
+            print(f"Ins: {tt.ins} -> {FAILURE} Expected: {tt.want}, got: {got}")
         else:
             print(f"Ins: {tt.ins} -> {got} {SUCCESS}")
 

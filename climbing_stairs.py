@@ -5,9 +5,9 @@ from defs import tests
 
 class Solution:
     TESTS = [
-        tests(ins=2, out=2),
-        tests(ins=3, out=3),
-        tests(ins=38, out=63245986),
+        tests(ins=2, want=2),
+        tests(ins=3, want=3),
+        tests(ins=38, want=63245986),
     ]
 
     @cache

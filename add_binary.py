@@ -3,8 +3,8 @@ from defs import tests
 
 class Solution:
     TESTS = [
-        tests(ins=("11", "1"), out="100"),
-        tests(ins=("1010", "1011"), out="10101"),
+        tests(ins=("11", "1"), want="100"),
+        tests(ins=("1010", "1011"), want="10101"),
     ]
 
     def addBinary(self, a: str, b: str) -> str:
