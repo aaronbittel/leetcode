@@ -6,7 +6,7 @@ COLOR24 = "\033[38;2;{};{};{}m"
 RESET = "\033[m"
 
 FAILURE_COLOR = COLOR24.format(197, 99, 99)
-SUCCESS_COLOR = COLOR24.format(101, 137, 132)
+SUCCESS_COLOR = COLOR24.format(137, 189, 182)
 
 FAILURE = f"{FAILURE_COLOR}Failure!{RESET}"
 SUCCESS = f"{SUCCESS_COLOR}Success!{RESET}"
@@ -57,6 +57,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     method_name = methods[0]
-    print(f"Running tests for problem: {method_name}\n")
+    print(f"\nRunning tests for problem: {method_name}\n")
 
     run_tests(sol_class, method_name)
