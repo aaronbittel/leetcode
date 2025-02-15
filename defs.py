@@ -25,6 +25,21 @@ class ListNode:
 
         return head
 
+    def __eq__(self, other: object, /) -> bool:
+        if not isinstance(other, ListNode):
+            return False
+
+        cur = self
+        cur_other = other
+        while cur:
+            if cur_other is None or cur.val != cur_other.val:
+                return False
+
+            cur = cur.next
+            cur_other = cur_other.next
+
+        return cur is None and cur_other is None
+
     def __str__(self) -> str:
         if not self:
             return "[]"
@@ -37,3 +52,7 @@ class ListNode:
             out += f"->{cur.val}"
 
         return out
+
+    # TODO: do better
+    def __repr__(self) -> str:
+        return self.__str__()
