@@ -7,7 +7,7 @@ test = namedtuple("test", ["ins", "want"])
 
 
 class ListNode:
-    def __init__(self, val: int = 0, next: Optional[ListNode] = None):
+    def __init__(self, val: int = 0, next: Optional[ListNode] = None) -> None:
         self.val = val
         self.next = next
 
@@ -56,3 +56,15 @@ class ListNode:
     # TODO: do better
     def __repr__(self) -> str:
         return self.__str__()
+
+
+class TreeNode:
+    def __init__(
+        self,
+        val: int = 0,
+        left: Optional[TreeNode] = None,
+        right: Optional[TreeNode] = None,
+    ) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
