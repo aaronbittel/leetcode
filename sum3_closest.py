@@ -7,14 +7,14 @@
 #   - if diff < 0 -> l++ (make sum bigger) else r-- (make sum smaller)
 # Runtime: O(n**2) -> n * (n - i)
 
-from defs import tests
+from defs import test
 
 
 class Solution:
     TESTS = [
-        tests(ins=([-1, 2, 1, -4], 1), want=2),
-        tests(ins=([0, 0, 0], 1), want=0),
-        tests(ins=([0, 1, 2], 0), want=3),
+        test(ins=([-1, 2, 1, -4], 1), want=2),
+        test(ins=([0, 0, 0], 1), want=0),
+        test(ins=([0, 1, 2], 0), want=3),
     ]
 
     def threeSumClosest(self, nums: list[int], target: int) -> int:

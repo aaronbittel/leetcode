@@ -1,10 +1,10 @@
-from defs import ListNode, tests
+from defs import ListNode, test
 from typing import Optional
 
 
 class Solution:
     TESTS = [
-        tests(
+        test(
             ins=[
                 ListNode.from_list([1, 4, 5]),
                 ListNode.from_list([1, 3, 4]),
@@ -12,8 +12,8 @@ class Solution:
             ],
             want=ListNode.from_list([1, 1, 2, 3, 4, 4, 5, 6]),
         ),
-        tests(ins=None, want=None),
-        tests(ins=[None], want=None),
+        test(ins=None, want=None),
+        test(ins=[None], want=None),
     ]
 
     def mergeKLists(self, lists: list[Optional[ListNode]]) -> Optional[ListNode]:

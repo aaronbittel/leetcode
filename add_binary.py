@@ -1,10 +1,10 @@
-from defs import tests
+from defs import test
 
 
 class Solution:
     TESTS = [
-        tests(ins=("11", "1"), want="100"),
-        tests(ins=("1010", "1011"), want="10101"),
+        test(ins=("11", "1"), want="100"),
+        test(ins=("1010", "1011"), want="10101"),
     ]
 
     def addBinary(self, a: str, b: str) -> str:

@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import namedtuple
 from typing import Optional
 
-tests = namedtuple("tests", ["ins", "want"])
+test = namedtuple("test", ["ins", "want"])
 
 
 class ListNode:

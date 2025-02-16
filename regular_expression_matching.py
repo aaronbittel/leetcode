@@ -1,25 +1,25 @@
 import logging
 from functools import cache
-from defs import tests
+from defs import test
 
 logging.basicConfig(format="", level=logging.INFO)
 
 
 class Solution:
     TESTS = [
-        tests(ins=("aa", "a"), want=False),
-        tests(ins=("aa", "a*"), want=True),
-        tests(ins=("ab", ".*"), want=True),
-        tests(ins=("aab", "c*a*b"), want=True),
-        tests(ins=("mississippi", "mis*is*ip*."), want=True),
-        tests(ins=("ppi", "."), want=False),
-        tests(ins=("ab", ".*c"), want=False),
-        tests(ins=("aaa", "a.a"), want=True),
-        tests(ins=("a", "ab*"), want=True),
-        tests(ins=("a", ".*..a*"), want=False),
-        tests(ins=("a", "ab*"), want=True),
-        tests(ins=("abcdede", "ab.*de"), want=True),
-        tests(ins=("aaaaaaaaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*"), want=False),
+        test(ins=("aa", "a"), want=False),
+        test(ins=("aa", "a*"), want=True),
+        test(ins=("ab", ".*"), want=True),
+        test(ins=("aab", "c*a*b"), want=True),
+        test(ins=("mississippi", "mis*is*ip*."), want=True),
+        test(ins=("ppi", "."), want=False),
+        test(ins=("ab", ".*c"), want=False),
+        test(ins=("aaa", "a.a"), want=True),
+        test(ins=("a", "ab*"), want=True),
+        test(ins=("a", ".*..a*"), want=False),
+        test(ins=("a", "ab*"), want=True),
+        test(ins=("abcdede", "ab.*de"), want=True),
+        test(ins=("aaaaaaaaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*"), want=False),
     ]
 
     @cache

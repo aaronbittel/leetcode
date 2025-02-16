@@ -3,14 +3,14 @@
 # time-complexity: O(n**2)
 # space-complexity: O(n)
 
-from defs import tests
+from defs import test
 
 
 class Solution:
     TESTS = [
-        tests(ins="babad", want="bab"),
-        tests(ins="cbbd", want="bb"),
-        tests(ins="a", want="a"),
+        test(ins="babad", want="bab"),
+        test(ins="cbbd", want="bb"),
+        test(ins="a", want="a"),
     ]
 
     def longestPalindrome(self, s: str) -> str:

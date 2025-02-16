@@ -1,16 +1,16 @@
-from defs import tests
+from defs import test
 
 
 class Solution:
     TESTS = [
-        tests(ins=4, want=2),
-        tests(ins=5, want=2),
-        tests(ins=8, want=2),
-        tests(ins=9, want=3),
-        tests(ins=128, want=11),
-        tests(ins=1, want=1),
-        tests(ins=2, want=1),
-        tests(ins=36, want=6),
+        test(ins=4, want=2),
+        test(ins=5, want=2),
+        test(ins=8, want=2),
+        test(ins=9, want=3),
+        test(ins=128, want=11),
+        test(ins=1, want=1),
+        test(ins=2, want=1),
+        test(ins=36, want=6),
     ]
 
     def mySqrt(self, x: int) -> int:

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from defs import ListNode, tests
+from defs import ListNode, test
 
 
 class Solution:
@@ -27,19 +27,19 @@ class Solution:
         return result
 
     TESTS = [
-        tests(
+        test(
             ins=(ListNode.from_list([1, 2, 3, 4, 5]), 2),
             want=ListNode.from_list([2, 1, 4, 3, 5]),
         ),
-        tests(
+        test(
             ins=(ListNode.from_list([1, 2, 3, 4]), 2),
             want=ListNode.from_list([2, 1, 4, 3]),
         ),
-        tests(
+        test(
             ins=(ListNode.from_list([1, 2, 3, 4, 5]), 3),
             want=ListNode.from_list([3, 2, 1, 4, 5]),
         ),
-        tests(
+        test(
             ins=(ListNode.from_list([1, 2]), 2),
             want=ListNode.from_list([2, 1]),
         ),

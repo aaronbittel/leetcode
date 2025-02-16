@@ -1,19 +1,19 @@
-from defs import tests
+from defs import test
 
 
 class Solution:
     TESTS = [
-        tests(ins=([1, 3], [2]), want=2.0),
-        tests(ins=([1, 2], [3, 4]), want=2.5),
-        tests(ins=([1, 3, 4, 5, 7], [2, 3, 4, 6, 7, 9]), want=4.0),
-        tests(ins=([1, 3, 5, 7], [2, 3, 4, 6, 7, 9]), want=4.5),
-        tests(ins=([], [1]), want=1.0),
-        tests(
+        test(ins=([1, 3], [2]), want=2.0),
+        test(ins=([1, 2], [3, 4]), want=2.5),
+        test(ins=([1, 3, 4, 5, 7], [2, 3, 4, 6, 7, 9]), want=4.0),
+        test(ins=([1, 3, 5, 7], [2, 3, 4, 6, 7, 9]), want=4.5),
+        test(ins=([], [1]), want=1.0),
+        test(
             ins=([1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]),
             want=9.0,
         ),
-        tests(ins=([3], [-2, -1]), want=-1.0),
-        tests(ins=([1, 2], [-1, 3]), want=1.5),
+        test(ins=([3], [-2, -1]), want=-1.0),
+        test(ins=([1, 2], [-1, 3]), want=1.5),
     ]
 
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:

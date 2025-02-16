@@ -1,13 +1,13 @@
 from functools import cache
 
-from defs import tests
+from defs import test
 
 
 class Solution:
     TESTS = [
-        tests(ins=2, want=2),
-        tests(ins=3, want=3),
-        tests(ins=38, want=63245986),
+        test(ins=2, want=2),
+        test(ins=3, want=3),
+        test(ins=38, want=63245986),
     ]
 
     @cache

@@ -1,4 +1,4 @@
-from defs import ListNode, tests
+from defs import ListNode, test
 from typing import Optional
 
 
@@ -22,8 +22,8 @@ class Solution:
         return h
 
     TESTS = [
-        tests(ins=ListNode.from_list([1, 1, 2]), want=ListNode.from_list([1, 2])),
-        tests(
+        test(ins=ListNode.from_list([1, 1, 2]), want=ListNode.from_list([1, 2])),
+        test(
             ins=ListNode.from_list([1, 1, 2, 3, 3]), want=ListNode.from_list([1, 2, 3])
         ),
     ]

@@ -1,4 +1,4 @@
-from defs import tests
+from defs import test
 
 
 class Solution:
@@ -29,7 +29,7 @@ class Solution:
         return output
 
     TESTS = [
-        tests(ins="23", want=["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]),
-        tests(ins="", want=[]),
-        tests(ins="2", want=["a", "b", "c"]),
+        test(ins="23", want=["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]),
+        test(ins="", want=[]),
+        test(ins="2", want=["a", "b", "c"]),
     ]
