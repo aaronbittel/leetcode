@@ -68,3 +68,33 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+    def __repr__(self) -> str:
+        if self is None:
+            return "[]"
+
+        as_list: list[Optional[int]] = []
+
+        def traverse(head: Optional[TreeNode], acc: list[Optional[int]]):
+            if head is None:
+                return
+            acc.append(head.val)
+            if head.left is None and head.right is not None:
+                acc.append(None)
+            else:
+                traverse(head.left, acc)
+            if head.right is not None:
+                traverse(head.right, acc)
+
+        traverse(self, as_list)
+
+        def join_optional_list(opt_list: list[Optional[int]]) -> str:
+            out = "["
+            for item in opt_list:
+                if item is None:
+                    out += "null, "
+                else:
+                    out += f"{item}, "
+            return out[:-2] + "]"
+
+        return join_optional_list(as_list)
